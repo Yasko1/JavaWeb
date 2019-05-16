@@ -6,21 +6,25 @@ public class Toy {
 	public String name;
 	public Size size;
 
-	public double getPrice() {
-		return price;
+	public String getName() {
+		return name;
 	}
 
-	public void setPrice(double price) {
-		if (price > 0)
-			this.price = price;
+	public double getPrice() {
+		return price;
 	}
 
 	public Size getSize() {
 		return size;
 	}
 
-	public String getName() {
-		return name;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		if (price > 0)
+			this.price = price;
 	}
 
 	@Override
