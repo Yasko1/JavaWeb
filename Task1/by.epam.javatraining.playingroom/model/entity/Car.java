@@ -11,6 +11,8 @@ public class Car extends Toy {
 		this.name = "Car";
 
 		switch (size) {
+		// eyyy
+		
 		case BIG:
 			this.size = Size.BIG;
 			this.price = 29.99;
