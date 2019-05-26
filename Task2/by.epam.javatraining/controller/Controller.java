@@ -13,25 +13,19 @@ import view.View;
 
 public class Controller {
 
-	public static void main(String[] args) throws IncorrectFileNameException, EmptyListException{
+	public static void main(String[] args) throws IncorrectFileNameException, EmptyListException {
 		String fileName = "input.txt";
 
 		try {
-			
-		List<String> linesFromFile = ReaderFromFile.readFile(fileName);
-		System.out.println("READ FROM FILE: ");
-		View.printFile(linesFromFile);
-		
-		List<Word> words = new ArrayList<>();
-        Splitter.getWords(linesFromFile, words);
-        System.out.println("Words:");
-        View.printWords(words);
-        
+
+			List<String> linesFromFile = ReaderFromFile.readFile(fileName);
+			View.printFile(linesFromFile);
+
 		} catch (IOException e) {
 			System.err.println("Problem with file!");
 		} catch (IncompatibleClassChangeError e) {
 			System.err.println(e.getMessage());
-		} 
+		}
 	}
 
 }

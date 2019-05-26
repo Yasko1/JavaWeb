@@ -10,6 +10,7 @@ public class View {
 		if(lines.size()==0) {
 			System.out.println("Cant be printing, because lines are empty.");
 		} else {
+			System.out.println("READ FROM FILE: ");
 			for(String line : lines) {
 				System.out.println(line);
 			}
@@ -20,7 +21,11 @@ public class View {
 		if(words.size()==0) {
 			System.out.println("Cant be printing, because there are no words");
 		} else {
-			System.out.println(words);
+			System.out.println("Words: \n" + words);
 		}
+	}
+	
+	public static void out(String message) {
+		System.out.println(message);
 	}
 }

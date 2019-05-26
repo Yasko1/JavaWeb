@@ -7,23 +7,29 @@ import model.entity.Word;
 
 public class Splitter {
 
-	private static String dividers = "(\\W+|\\d+)"; //regular expressions
-	
+	private static String dividers = "(\\W+|\\d+)"; // regular expressions
+
 	public static List<Word> getWords(List<String> linesFromFile, List<Word> words) throws EmptyListException {
-		if(linesFromFile.isEmpty()) {
+		if (linesFromFile.isEmpty()) {
 			throw new EmptyListException("File is empty!");
 		}
-		for(String line : linesFromFile) {
-			if(!line.isEmpty()) {
-				String[] wordsInOneLine=line.split(dividers);
-				for(String word : wordsInOneLine) {
-					if(!word.isEmpty()) {
+		for (String line : linesFromFile) {
+			if (!line.isEmpty()) {
+				String[] wordsInOneLine = line.split(dividers);
+				for (String word : wordsInOneLine) {
+					if (!word.isEmpty()) {
 						words.add(new Word(word));
 					}
 				}
 			}
 		}
-	return words;
+		return words;
 	}
+	// add functions
+	//
+	// getSentenses
+	//
+	// getParagraphs
+	//
 
 }
