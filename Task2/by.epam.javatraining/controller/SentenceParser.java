@@ -27,28 +27,5 @@ public class SentenceParser extends ParserLink<Output> {
         }
         return sentence;
     }
-	//private static final Logger log = Logger.getLogger(SentenceParser.class);
 	
-	//private static String dividersForSentences = "[A-Z]{1}[[\\w|,|']*| ]*[.!?]";
-
-//	public static List<Sentence> getSentenses(List<String> linesFromFile, List<Sentence> sentences) {
-//		try {
-//			if (linesFromFile.isEmpty()) {
-//				throw new EmptyListException("File is empty!");
-//			}
-//		} catch (EmptyListException e) {
-//			log.info("File is empty, nothing to split");
-//		}
-//		for (String line : linesFromFile) {
-//			if (!line.isEmpty()) {
-//				String[] wordsInOneLine = line.split(dividersForSentences);
-//				for (String sentence : wordsInOneLine) {
-//					if (!sentence.isEmpty()) {
-//						sentences.add(new Sentence(sentence));
-//					}
-//				}
-//			}
-//		}
-//		return sentences;
-//	}
 }
