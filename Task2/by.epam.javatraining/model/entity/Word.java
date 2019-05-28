@@ -1,26 +1,31 @@
 package model.entity;
 
-public class Word {
+import java.util.ArrayList;
+import java.util.List;
 
-	private String content;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import composite.Output;
+
+public class Word implements Output {
+
+	private static final Logger log = LogManager.getLogger(Word.class);
+
+	private List<Output> word;
 
 	public Word() {
+		word = new ArrayList<>();
 	}
 
-	public Word(String content) {
-		this.content = content;
-		
-	}
-	
-	public Word(String content, char firstConsonantLetter) {
-		this.content = content;
+	public Word(List<Output> word) {
+		this.word = word;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((content == null) ? 0 : content.hashCode());
+		result = prime * result + ((word == null) ? 0 : word.hashCode());
 		return result;
 	}
 
@@ -33,24 +38,28 @@ public class Word {
 		if (getClass() != obj.getClass())
 			return false;
 		Word other = (Word) obj;
-		if (content == null) {
-			if (other.content != null)
+		if (word == null) {
+			if (other.word != null)
 				return false;
-		} else if (!content.equals(other.content))
+		} else if (!word.equals(other.word))
 			return false;
 		return true;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
+	@Override
+	public void outComponent() {
+		log.info(toString());
 	}
 
 	@Override
-	public String toString() {
-		return content;
+	public void addElement(Output element) {
+		word.add(element);		
 	}
+
+	@Override
+	public List<Output> getList() {
+		return word;
+	}
+
+	
 }

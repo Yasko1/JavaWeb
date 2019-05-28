@@ -28,4 +28,8 @@ public class View {
 	public static void out(String message) {
 		System.out.println(message);
 	}
+	
+	public static void out(Object b) {
+		System.out.println(b);
+	}
 }

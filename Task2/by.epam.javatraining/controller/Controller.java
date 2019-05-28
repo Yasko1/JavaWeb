@@ -1,31 +1,37 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import exception.EmptyListException;
 import exception.IncorrectFileNameException;
-import model.entity.Word;
-import model.logic.ReaderFromFile;
-import model.logic.Splitter;
-import view.View;
+import exception.ParserException;
+import model.entity.Text;
 
 public class Controller {
 
-	public static void main(String[] args) throws IncorrectFileNameException, EmptyListException {
+	public Text getTextFromFile(String filePath) throws ParserException {
+		try {
+			Path path = Paths.get(filePath);
+			byte[] bytes = Files.readAllBytes(path);
+			String str = new String(bytes);
+			TextParser parser = Parser.createTextParser();
+			Text text = parser.parseLine(str);
+			return text;
+		} catch (ParserException | IOException e) {
+			throw new ParserException(e);
+		}
+	}
+
+	public static void main(String[] args) throws IncorrectFileNameException, EmptyListException, ParserException {
 		String fileName = "input.txt";
 
-		try {
+		Controller control = new Controller();
+        Text text = control.getTextFromFile(fileName);
+        text.outComponent();
+        
 
-			List<String> linesFromFile = ReaderFromFile.readFile(fileName);
-			View.printFile(linesFromFile);
-
-		} catch (IOException e) {
-			System.err.println("Problem with file!");
-		} catch (IncompatibleClassChangeError e) {
-			System.err.println(e.getMessage());
-		}
 	}
 
 }
