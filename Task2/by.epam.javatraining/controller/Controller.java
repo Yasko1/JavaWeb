@@ -27,7 +27,6 @@ public class Controller {
 	public static void main(String[] args) throws IncorrectFileNameException, EmptyListException, ParserException {
 		
 		String fileName = "input.txt";
-
 		Controller control = new Controller();
 		Text text = control.getTextFromFile(fileName);
 		text.outComponent();
