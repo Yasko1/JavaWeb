@@ -27,19 +27,4 @@ public class TextParser extends ParserLink<Output> {
 		}
 		return text;
 	}
-//	
-//	private static final Pattern PARAGRAPH_DELIMETER = Pattern.compile("\n(\\s{4,}|\t)");
-//
-//	public Text parseLine(List<String> linesFromFile) {
-//		if (linesFromFile.isEmpty()) {
-//			throw new EmptyListException("File is empty!");
-//		}
-//		Text text = new Text();
-//		String[] strings = string.trim().split(PARAGRAPH_DELIMETER.pattern());
-//		for (String s : strings) {
-//			Optional<SmartTextElement> optional = parseNext(s);
-//			text.smartAddElement(optional.get());
-//		}
-//		return text;
-//	}
 }
