@@ -5,7 +5,7 @@ import dao.implementation.*;
 import database.ConnectionPool;
 
 /**
- * Provides {@link AutoCloseable} creator of dao implementation class with connection to database for each.
+ * Provides creator of dao implementation class with connection to database for each.
  */
 public class DaoCreator implements AutoCloseable {
     private ConnectionPool connectionPool;
@@ -17,7 +17,6 @@ public class DaoCreator implements AutoCloseable {
     }
 
     /**
-     *
      * @return an {@link UserDaoImpl} object with connection to database.
      */
     public UserDaoImplementation getUserDaoImpl() {
@@ -25,7 +24,6 @@ public class DaoCreator implements AutoCloseable {
     }
 
     /**
-     *
      * @return an {@link LotDaoImpl} object with connection to database.
      */
     public LotDaoImplementation getLotDaoImpl() {

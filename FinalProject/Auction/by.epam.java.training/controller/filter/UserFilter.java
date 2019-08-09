@@ -55,12 +55,18 @@ public class UserFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        String servletPath = request.getServletPath();
+        String servletPath = request.getServletPath(); //url
 
         checkForAuthorization(servletPath, request, response);
         checkForAccess(request, response);
 
-        filterChain.doFilter(request, response);
+        try {
+            filterChain.doFilter(request, response);
+        }
+        catch (Exception exception) {
+            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "ERROR");
+        }
+        //filterChain.doFilter(request, response);
     }
 
     /**
