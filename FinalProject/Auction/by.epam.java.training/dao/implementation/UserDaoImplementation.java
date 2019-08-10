@@ -25,7 +25,7 @@ public class UserDaoImplementation extends AbstractDao<User> implements UserDao 
 	private static final String ALL_USERS_QUERY = "SELECT * FROM user WHERE role = 'user'";
 	private static final String USERNAME_AND_PASSWORD_QUERY = "SELECT * FROM user WHERE username = ? AND password = ?";
 	private static final String LOT_BIDDERS_QUERY = "SELECT"
-			+ " id_user, first_name, last_name, username, password, email, role, is_banned, balance" + " FROM bidder"
+			+ " id_user, first_name, last_name, username, email, password, role, is_banned, balance" + " FROM bidder"
 			+ " LEFT JOIN user" + " ON user_id_user = user.id_user" + " WHERE lot_id_lot = ?";
 	private static final String INSERT_QUERY = "INSERT INTO user (id_user, first_name, last_name, username, email,"
 			+ " role, is_banned, balance)" + " VALUES(?,?,?,?,?,?,?,?) " + " ON DUPLICATE KEY"

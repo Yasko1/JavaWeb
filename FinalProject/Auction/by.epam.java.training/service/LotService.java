@@ -74,13 +74,15 @@ public class LotService {
      * @throws ServiceException Signals that service exception of some sort has occurred.
      */
     public List<Lot> findByParameters(Map<String, String> parameters) throws ServiceException {
-        try (DaoCreator daoCreator = new DaoCreator()) {
-            LotDaoImplementation lotDao = daoCreator.getLotDaoImpl();
-
+    	DaoCreator daoCreator = new DaoCreator();
+    	try {        	
+			LotDaoImplementation lotDao = daoCreator.getLotDaoImpl();            
             return lotDao.findByParameters(parameters);
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
-        }
+        } finally {
+        	daoCreator.close();
+		}
     }
 
     /**

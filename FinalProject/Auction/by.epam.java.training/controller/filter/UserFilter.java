@@ -1,11 +1,11 @@
 package controller.filter;
 
-import entity.RoleEnum;
+//import entity.RoleEnum;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -13,23 +13,25 @@ import java.io.IOException;
  */
 public class UserFilter implements Filter {
 
-    private static final String ROLE = "role";
-    private static final String COMMAND = "command";
-    private static final String LOGIN_COMMAND = "login";
-    private static final String LOT_MANAGEMENT_COMMAND = "lotManagement";
-    private static final String USER_MANAGEMENT_COMMAND = "userManagement";
-    private static final String USER_LOTS_COMMAND = "userLots";
-
-    private static final String LOGIN_PAGE = "login.jsp";
-    private static final String LOGIN_PAGE_PATH = "/WEB-INF/login.jsp";
-    private static final String LOGIN_PAGE_STYLE_PATH = "/style/loginStyle.css";
-
-    private static final String ERROR_ACCESS_MESSAGE = "errorAccessMessage";
-    private static final String AUTHENTICATION_MESSAGE = "You should login to view this page";
-    private static final String ACCESS_USER_MESSAGE = "You should login as admin to view this page";
-    private static final String ACCESS_ADMIN_MESSAGE = "You should login as user to view this page";
-    private static final String LANGUAGE = "language";
-
+	/*
+	 * private static final String ROLE = "role"; private static final String
+	 * COMMAND = "command"; private static final String LOGIN_COMMAND = "login";
+	 * private static final String LOT_MANAGEMENT_COMMAND = "lotManagement"; private
+	 * static final String USER_MANAGEMENT_COMMAND = "userManagement"; private
+	 * static final String USER_LOTS_COMMAND = "userLots";
+	 * 
+	 * private static final String LOGIN_PAGE = "login.jsp"; private static final
+	 * String LOGIN_PAGE_PATH = "/WEB-INF/login.jsp"; private static final String
+	 * LOGIN_PAGE_STYLE_PATH = "/style/loginStyle.css";
+	 * 
+	 * private static final String ERROR_ACCESS_MESSAGE = "errorAccessMessage";
+	 * private static final String AUTHENTICATION_MESSAGE =
+	 * "You should login to view this page"; private static final String
+	 * ACCESS_USER_MESSAGE = "You should login as admin to view this page"; private
+	 * static final String ACCESS_ADMIN_MESSAGE =
+	 * "You should login as user to view this page"; private static final String
+	 * LANGUAGE = "language";
+	 */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
@@ -55,18 +57,17 @@ public class UserFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        String servletPath = request.getServletPath(); //url
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        filterChain.doFilter(request, response);
+        //String servletPath = request.getServletPath(); //url
 
-        checkForAuthorization(servletPath, request, response);
-        checkForAccess(request, response);
-
-        try {
-            filterChain.doFilter(request, response);
-        }
-        catch (Exception exception) {
-            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "ERROR");
-        }
-        //filterChain.doFilter(request, response);
+		/*
+		 * checkForAuthorization(servletPath, request, response);
+		 * checkForAccess(request, response);
+		 * 
+		 * filterChain.doFilter(request, response);
+		 */
     }
 
     /**
@@ -77,27 +78,22 @@ public class UserFilter implements Filter {
      * @throws IOException Signals that an I/O exception of some sort has occurred.
      * @throws ServletException General exception a servlet can throw when it encounters difficulty.
      */
-    private void checkForAccess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        RoleEnum role = (RoleEnum) session.getAttribute(ROLE);
-
-        if (role != null) {
-            String command = request.getParameter(COMMAND);
-
-            if (role.equals(RoleEnum.USER) &&
-                    (LOT_MANAGEMENT_COMMAND.equals(command) ||
-                            USER_MANAGEMENT_COMMAND.equals(command))) {
-
-                forwardToLoginWithMessage(request, response, ACCESS_USER_MESSAGE);
-            }
-
-            if (role.equals(RoleEnum.ADMIN) &&
-                    USER_LOTS_COMMAND.equals(command)) {
-
-                forwardToLoginWithMessage(request, response, ACCESS_ADMIN_MESSAGE);
-            }
-        }
-    }
+	/*
+	 * private void checkForAccess(HttpServletRequest request, HttpServletResponse
+	 * response) throws IOException, ServletException { HttpSession session =
+	 * request.getSession(); RoleEnum role = (RoleEnum) session.getAttribute(ROLE);
+	 * 
+	 * if (role != null) { String command = request.getParameter(COMMAND);
+	 * 
+	 * if (role.equals(RoleEnum.USER) && (LOT_MANAGEMENT_COMMAND.equals(command) ||
+	 * USER_MANAGEMENT_COMMAND.equals(command))) {
+	 * 
+	 * forwardToLoginWithMessage(request, response, ACCESS_USER_MESSAGE); }
+	 * 
+	 * if (role.equals(RoleEnum.ADMIN) && USER_LOTS_COMMAND.equals(command)) {
+	 * 
+	 * forwardToLoginWithMessage(request, response, ACCESS_ADMIN_MESSAGE); } } }
+	 */
 
     /**
      * The method designed to check user access.
@@ -107,23 +103,22 @@ public class UserFilter implements Filter {
      * @throws IOException Signals that an I/O exception of some sort has occurred.
      * @throws ServletException General exception a servlet can throw when it encounters difficulty.
      */
-    private void checkForAuthorization(String servletPath, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        String command = request.getParameter(COMMAND);
-
-        if (!servletPath.endsWith(LOGIN_PAGE) &&
-                !servletPath.endsWith(LOGIN_PAGE_STYLE_PATH) &&
-                !LOGIN_COMMAND.equals(command) &&
-                !LANGUAGE.equals(command)) {
-
-            HttpSession session = request.getSession();
-            RoleEnum role = (RoleEnum) session.getAttribute(ROLE);
-
-            if (role == null) {
-                forwardToLoginWithMessage(request, response, AUTHENTICATION_MESSAGE);
-            }
-        }
-    }
+	/*
+	 * private void checkForAuthorization(String servletPath, HttpServletRequest
+	 * request, HttpServletResponse response) throws IOException, ServletException {
+	 * 
+	 * String command = request.getParameter(COMMAND);
+	 * 
+	 * if (!servletPath.endsWith(LOGIN_PAGE) &&
+	 * !servletPath.endsWith(LOGIN_PAGE_STYLE_PATH) &&
+	 * !LOGIN_COMMAND.equals(command) && !LANGUAGE.equals(command)) {
+	 * 
+	 * HttpSession session = request.getSession(); RoleEnum role = (RoleEnum)
+	 * session.getAttribute(ROLE);
+	 * 
+	 * if (role == null) { forwardToLoginWithMessage(request, response,
+	 * AUTHENTICATION_MESSAGE); } } }
+	 */
 
     /**
      * The method designed to forward user on login page with appropriate message.
@@ -133,12 +128,15 @@ public class UserFilter implements Filter {
      * @throws IOException Signals that an I/O exception of some sort has occurred.
      * @throws ServletException General exception a servlet can throw when it encounters difficulty.
      */
-    private void forwardToLoginWithMessage(HttpServletRequest request, HttpServletResponse response, String message) throws IOException, ServletException {
-        request.setAttribute(ERROR_ACCESS_MESSAGE, message);
-        ServletContext servletContext = request.getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher(LOGIN_PAGE_PATH);
-        dispatcher.forward(request, response);
-    }
+	/*
+	 * private void forwardToLoginWithMessage(HttpServletRequest request,
+	 * HttpServletResponse response, String message) throws IOException,
+	 * ServletException { request.setAttribute(ERROR_ACCESS_MESSAGE, message);
+	 * ServletContext servletContext = request.getServletContext();
+	 * RequestDispatcher dispatcher =
+	 * servletContext.getRequestDispatcher(LOGIN_PAGE_PATH);
+	 * dispatcher.forward(request, response); }
+	 */
 
     @Override
     public void destroy() {

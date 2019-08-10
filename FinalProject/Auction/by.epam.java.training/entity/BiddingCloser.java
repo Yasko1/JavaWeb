@@ -13,7 +13,7 @@ import service.util.DateTimeParser;
 
 public class BiddingCloser extends Thread {
 	
-	private static final String DATE_OF_END_FROM = "DATA OF END";
+	private static final String DATE_OF_END_FROM = "date_of_end_from";
 	private static final String STATUS = "status";
 	
 	public void run() {
@@ -21,8 +21,8 @@ public class BiddingCloser extends Thread {
 		checkLotsForClosing();
 		try {
 			TimeUnit.MINUTES.sleep(5);
-		}catch(InterruptedException e) {
-			//logg
+		}catch(InterruptedException e) { 
+			throw new IllegalArgumentException();
 		}
 	}
 	
@@ -31,7 +31,7 @@ public class BiddingCloser extends Thread {
 		try {
 			lots = findAllLotsForClosing();
 		} catch (ServiceException e) {
-			//logg
+			throw new IllegalArgumentException();
 		}
 		
 		if(lots != null)
@@ -44,6 +44,7 @@ public class BiddingCloser extends Thread {
 		
 		Map<String, String> parameters = new HashMap<>();
 		parameters.put(STATUS, LotStatusEnum.CONFIRMED.getValue());
+		
 		parameters.put(DATE_OF_END_FROM, currentDateString);
 		
 		LotService lotService = new LotService();
@@ -61,7 +62,8 @@ public class BiddingCloser extends Thread {
             try {
                 bidders = userService.findLotBidders(lotId);
             } catch (ServiceException e) {
-                //logging
+            	throw new IllegalArgumentException();
+            	
             }
 
             if (bidders != null) {
@@ -84,7 +86,7 @@ public class BiddingCloser extends Thread {
             try {
                 lotService.save(lot);
             } catch (ServiceException e) {
-                //logging
+            	throw new IllegalArgumentException();
             }
         }
 

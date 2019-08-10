@@ -28,14 +28,11 @@ public class LotDaoImplementation  extends AbstractDao<Lot> implements LotDao  {
 	    private static final String DATE_OF_END_TO = "date_of_end_to";
 
 	    private static final String ALL_LOTS_BY_USER_ID_QUERY = "SELECT * FROM lot WHERE owner_id = ?";
-	    private static final String INSERT_QUERY = "INSERT INTO lot (id_lot, price, date_of_start, date_of_end, brand, model," +
-	            " class, year_of_issue, color, engine_volume, is_damaged, auction_type, owner_id, status)" +
+	    private static final String INSERT_QUERY = "INSERT INTO lot (id_lot, price, owner_id, date_of_start, date_of_end, status)" +
 	            " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?) " +
 	            " ON DUPLICATE KEY" +
-	            " UPDATE id_lot = VALUES(id_lot), price = VALUES(price), date_of_start = VALUES(date_of_start)," +
-	            " date_of_end = VALUES(date_of_end), brand = VALUES(brand), model = VALUES(model), class =  VALUES(class)," +
-	            " year_of_issue = VALUES(year_of_issue), color = VALUES(color), engine_volume = VALUES(engine_volume)," +
-	            " is_damaged = VALUES(is_damaged), auction_type = VALUES(auction_type), owner_id = VALUES(owner_id)," +
+	            " UPDATE id_lot = VALUES(id_lot), price = VALUES(price),owner_id = VALUES(owner_id)," +
+	            " date_of_start = VALUES(date_of_start), date_of_end = VALUES(date_of_end)," +
 	            " status = VALUES(status)";
 	    private static final String BID_LOT_QUERY = "UPDATE lot SET lot.price = ? WHERE lot.id_lot = ? AND price = ?";
 
@@ -144,7 +141,7 @@ public class LotDaoImplementation  extends AbstractDao<Lot> implements LotDao  {
 	        }
 
 	        String query = DynamicQueryBuilder.build(processedParameters);
-
+	        
 	        Collection<String> values = processedParameters.values();
 
 	        int size = processedParameters.size();
