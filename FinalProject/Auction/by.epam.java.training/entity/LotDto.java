@@ -7,6 +7,7 @@ public class LotDto {
 
     private Lot lot;
     private List<LotPhoto> photos;
+    private Picture picture;
 
     public LotDto() {
     }
@@ -15,12 +16,26 @@ public class LotDto {
         this.lot = lot;
         this.photos = photos;
     }
+    
+    public LotDto(Lot lot, List<LotPhoto> photos, Picture picture) {
+        this.lot = lot;
+        this.photos = photos;
+        this.picture=picture;
+    }
 
     public Lot getLot() {
         return lot;
     }
 
-    public void setLot(Lot lot) {
+    public Picture getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Picture picture) {
+		this.picture = picture;
+	}
+
+	public void setLot(Lot lot) {
         this.lot = lot;
     }
 

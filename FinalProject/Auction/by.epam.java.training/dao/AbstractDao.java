@@ -39,6 +39,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
      * @return a {@link List} implementation with objects.
      * @throws DaoException Signals that an database access object exception of some sort has occurred.
      */
+    
     protected List<T> executeQuery(String query, Builder<T> builder, String... params) throws DaoException {
 
         List<T> items = new ArrayList<>();

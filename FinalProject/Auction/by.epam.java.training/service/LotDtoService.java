@@ -43,8 +43,8 @@ public class LotDtoService {
      */
     public List<LotDto> findAllByUserId(long id) throws ServiceException {
         LotService lotService = new LotService();
-        List<Lot> lots = lotService.findAllByUserId(id);
-
+        List<Lot> lots = lotService.findAllByUserId(id); 
+        
         List<LotDto> lotDtos = new ArrayList<>();
         LotPhotoService lotPhotoService = new LotPhotoService();
         findLotsPhotos(lots, lotPhotoService, lotDtos);

@@ -15,11 +15,11 @@ public class Lot implements Identifiable {
 	protected LotStatusEnum status;
 	protected BigDecimal currentBid;
 	
-	public static final String ID= "ID_LOT";
-	public static final String PRICE ="";
-	public static final String OWNER_ID = "";
-	public static final String DATE_OF_START = "date of start";
-	public static final String DATE_OF_END = "date od end";
+	public static final String ID= "id_lot";
+	public static final String PRICE ="price";
+	public static final String OWNER_ID = "owner_id";
+	public static final String DATE_OF_START = "date_of_start";
+	public static final String DATE_OF_END = "date_of_end";
 	public static final String STATUS = "status";
 	public static final String IS_DAMAGED = "is_damaged";
 

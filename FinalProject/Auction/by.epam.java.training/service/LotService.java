@@ -57,10 +57,12 @@ public class LotService {
      * @throws ServiceException Signals that service exception of some sort has occurred.
      */
     public List<Lot> findAllByUserId(long id) throws ServiceException {
-        try (DaoCreator daoCreator = new DaoCreator()) {
+    	
+        try (DaoCreator daoCreator = new DaoCreator()){
             LotDaoImplementation lotDao = daoCreator.getLotDaoImpl();
 
             return lotDao.findAllByUserId(id);
+            
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }

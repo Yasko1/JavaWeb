@@ -7,10 +7,10 @@ public class Picture extends Painter {
 
 	private long idPicture;
 	private String nameOfPicture;
-	private int dateOfPainting;
+	private int yearOfPainting;
 
-	public static final String NAME_OF_PICTURE = "picture name";
-	public static final String DATE_OF_PAINTING = "date of paint";
+	public static final String NAME_OF_PICTURE = "name";
+	public static final String YEAR_OF_PAINTING = "year_of_painting";
 
 	public Picture() {
 	}
@@ -18,20 +18,20 @@ public class Picture extends Painter {
 	public Picture(long idPicture, String name, int dateOfPainting) {
 		this.idPicture = idPicture;
 		this.nameOfPicture = name;
-		this.dateOfPainting = dateOfPainting;
+		this.yearOfPainting = dateOfPainting;
 	}
 
 	public Picture(long idLot, BigDecimal price, Date dateOfStart, Date dateOfEnd, LotStatusEnum status, long ownerId,
-			String nameOfPainter, int painterbirth, String nameOfPicture, int dateOfPaint) {
+			String nameOfPainter, String surnameOfPainter, String nameOfPicture, int dateOfPaint) {
 		this.idLot = idLot;
 		this.price = price;
 		this.dateOfStart = dateOfStart;
 		this.dateOfEnd = dateOfEnd;
 		this.status = status;
 		this.nameOfPainter = nameOfPainter;
-		this.painterbirth = painterbirth;
+		this.surnameOfPainter=surnameOfPainter;
 		this.nameOfPicture = nameOfPicture;
-		this.dateOfPainting=dateOfPaint;
+		this.yearOfPainting=dateOfPaint;
 		this.ownerId = ownerId;
 	}
 
@@ -52,11 +52,11 @@ public class Picture extends Painter {
 	}
 
 	public int getDateOfPainting() {
-		return dateOfPainting;
+		return yearOfPainting;
 	}
 
 	public void setDateOfPainting(int dateOfPainting) {
-		this.dateOfPainting = dateOfPainting;
+		this.yearOfPainting = dateOfPainting;
 	}
 
 }

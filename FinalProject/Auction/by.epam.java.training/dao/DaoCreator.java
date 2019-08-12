@@ -41,6 +41,9 @@ public class DaoCreator implements AutoCloseable {
     /**
      *  Returns database connection to {@link ConnectionPool}
      */
+    public PictureDaoImplementation getPictureDaoImpl() {
+        return new PictureDaoImplementation(connection);
+    }
     @Override
     public void close() {
         connectionPool.returnConnection(connection);

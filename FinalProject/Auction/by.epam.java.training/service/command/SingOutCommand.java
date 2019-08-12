@@ -14,7 +14,7 @@ public class SingOutCommand implements Command{
 
     private static final String ID = "id";
     private static final String ROLE = "role";
-    private static final String LOGIN_PAGE = "/WEB-INF/login.jsp";
+    private static final String LOGIN_PAGE = "/login.jsp";
 
     /**
      * Process the request, sing out from profile and generates a result of processing in the form of

@@ -29,7 +29,7 @@ public class LotDaoImplementation  extends AbstractDao<Lot> implements LotDao  {
 
 	    private static final String ALL_LOTS_BY_USER_ID_QUERY = "SELECT * FROM lot WHERE owner_id = ?";
 	    private static final String INSERT_QUERY = "INSERT INTO lot (id_lot, price, owner_id, date_of_start, date_of_end, status)" +
-	            " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?) " +
+	            " VALUES(?,?,?,?,?,?) " +
 	            " ON DUPLICATE KEY" +
 	            " UPDATE id_lot = VALUES(id_lot), price = VALUES(price),owner_id = VALUES(owner_id)," +
 	            " date_of_start = VALUES(date_of_start), date_of_end = VALUES(date_of_end)," +
@@ -97,8 +97,9 @@ public class LotDaoImplementation  extends AbstractDao<Lot> implements LotDao  {
 	     */
 	    @Override
 	    public List<Lot> findAllByUserId(long id) throws DaoException {
-	        String idParameter = String.valueOf(id);
-
+	    	
+	        String idParameter = String.valueOf(id); 
+	        
 	        return executeQuery(ALL_LOTS_BY_USER_ID_QUERY, new LotBuilder(), idParameter);
 	    }
 
