@@ -52,7 +52,9 @@
             <hr>
             <c:forEach items="${lotDtoList}" var="lotDto">
                 <div class="col-75">
-                    <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}">${lotDto.lot.price}$</a>
+                   <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}" >№${lotDto.lot.idLot}</a>
+                   <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}"> " ${lotDto.picture.name} " </a>
+                   <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}">${lotDto.lot.price}$</a>
                 </div>
                 <div class="col-25">
                     <div class="col-50">
