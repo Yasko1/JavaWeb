@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="ctg" uri="/WEB-INF/fullFilePath" %>
+<%@ taglib prefix="ctg" uri="fullFilePath" %>
 
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="text" var="text"/>
@@ -15,24 +15,27 @@
 
 <fmt:message bundle="${text}" key="main.table.header.photo" var="photo"/>
 <fmt:message bundle="${text}" key="main.table.header.currentPrice" var="current_price"/>
-<fmt:message bundle="${text}" key="main.table.header.lot" var="lot"/>
+<fmt:message bundle="${text}" key="main.table.header.name" var="name"/>
+<fmt:message bundle="${text}" key="main.table.header.painter" var="painter"/>
+<fmt:message bundle="${text}" key="main.table.header.yearOfPainting" var="year_of_painting"/>
 <fmt:message bundle="${text}" key="main.table.lotInfo" var="lot_info"/>
 <fmt:message bundle="${text}" key="main.table.bidButton" var="bid_button"/>
-<fmt:message bundle="${text}" key="main.finder.header.vehicleFinder" var="vehicle_finder"/>
 
+<fmt:message bundle="${text}" key="main.finder.header.Finder" var="finder"/>
+<fmt:message bundle="${text}" key="main.finder.parameter.nationality" var="nationality"/>
 <fmt:message bundle="${text}" key="main.finder.parameter.year" var="year"/>
 <fmt:message bundle="${text}" key="main.finder.parameter.year.option.All" var="all"/>
 <fmt:message bundle="${text}" key="main.finder.parameter.year.to" var="to"/>
 <fmt:message bundle="${text}" key="main.finder.parameter.damaged.option.no" var="no"/>
 <fmt:message bundle="${text}" key="main.finder.button.find" var="find"/>
 
-<c:url value="/style/mainStyl.css" var="stm"/>
+<c:url value="/style/mainStyl.css" var="stl"/>
 
 <html lang="${sessionScope.language}">
 <head>
-    <link rel="stylesheet" href="${stm}">
+    <link rel="stylesheet" href="${stl}">
     <meta charset="UTF-8">
-    <title>ENAUCT</title>
+    <title>AUCTION</title>
 </head>
 <body>
 
@@ -49,29 +52,29 @@
     <div class="row">
 
         <div class="middle">
-            <div class="vehicleFinderHeader">${vehicle_finder}</div>
-            <form action="" class="vehicleFinder" method="get">
+            <div class="finderHeader">${finder}</div>
+            <form action="" class="finder" method="get">
                 <input type="hidden" name="command" value="findLots">
+                
+                
                 <div class="row">
                     <div class="col-30">
-                        <label for="auction_type">${auction_type}</label>
+                        <label for="nationality_type">${nationality}</label>
                     </div>
                     <div class="col-70">
-                        <select id="auction_type" name="auction_type">
+                        <select id="nationality_type" name="nationality">
                             <option value="All">${all}</option>
                             
                         </select>
                     </div>
-                </div>
-
-                
+                </div>                
 
                 <div class="row">
                     <div class="col-30">
-                        <label for="year_of_issue_from">${year}</label>
+                        <label for="year_of_painting_from">${year}</label>
                     </div>
                     <div class="col-30">
-                        <select id="year_of_issue_from" name="year_of_issue_from">
+                        <select id="year_of_painting_from" name="year_of_painting_from">
                             <option value="All">${all}</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
@@ -112,10 +115,10 @@
                         </select>
                     </div>
                     <div class="col-10">
-                        <label for="year_of_issue_to">${to}</label>
+                        <label for="year_of_painting_to">${to}</label>
                     </div>
                     <div class="col-30">
-                        <select id="year_of_issue_to" name="year_of_issue_to">
+                        <select id="year_of_painting_to" name="year_of_painting_to">
                             <option value="All">${all}</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
@@ -157,20 +160,6 @@
                     </div>
                 </div>
 
-
-                <div class="row">
-                    <div class="col-30">
-                        <label for="is_damaged">${damaged}</label>
-                    </div>
-                    <div class="col-70">
-                        <select id="is_damaged" name="is_damaged">
-                            <option value="All">${all}</option>
-                            <option value="1">${yes}</option>
-                            <option value="0">${no}</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div class="findButtonDiv">
                     <input type="submit" value="${find}" id="findButton">
                 </div>
@@ -180,34 +169,33 @@
         <div class="side">
             <table id="lots" class="lots">
                 <tr>
-                    <th>${photo}</th>
-                    <th>${lot}#</th>
-                    <th>${painter}</th>
-                    <th>${year_of_painting}</th>
-                    <th>${current_price}$</th>
+                    <th valign="top">${photo}</th>
+                    <th width="50px" valign="top">${year_of_painting}</th>
+                    <th width="150px" valign="top">${painter}</th>
+                    <th width="200px" valign="top">${name}</th>
+                    <th width="60px" valign="top">${current_price}$</th>
                 </tr>
                 <c:forEach items="${lotDtoList}" var="lotDto">
                     <tr>
-                        <td>
+                         <td>
                             <div>
                                 <c:if test="${lotDto.photos.size() != 0}">
                                     <c:set var="photoName" value="${lotDto.photos.get(0).getUrl()}" scope="page"/>
-                                    <img src="${ctg:filePath(photoName)}" alt="lot photo" width="200px">
+                                    <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}">
+                                    <img src="${ctg:filePath(photoName)}" alt="lot photo" width="250px"></a>
                                 </c:if>
                             </div>
-
-                            <div>
-                                <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}">${lot_info}</a>
-                            </div>
                         </td>
-                        <td><c:out value="${ lotDto.lot.idLot }"/></td>
-                        
-                        <td>
+                        <td width="50px" valign="top"><c:out value="${lotDto.picture.getYear()}"/></td>
+                        <td width="150px" valign="top"><c:out value="${lotDto.picture.idPainter}"/></td>
+                        <td width="200px" valign="top"><div><c:out value="${lotDto.picture.name}"/></div></td>
+                        <td width="60px" valign="top">
                             <div><c:out value="${ lotDto.lot.price }$"/></div>
                             <div>
                                 <a href="controller?command=lotInfo&lotId=${lotDto.lot.idLot}" class="bidButton">${bid_button}</a>
                             </div>
                         </td>
+                        
                     </tr>
                 </c:forEach>
             </table>
@@ -217,7 +205,7 @@
 </div>
 
 <footer>
-    <h4></h4>
+        <h4 >${contact_us}:<a href="https://www.google.com/intl/ru/gmail/about/"> auctionAdmin@gmail.com</a></h4>
 </footer>
 
 </body>

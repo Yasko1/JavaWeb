@@ -27,17 +27,19 @@
 <fmt:message bundle="${text}" key="adminProfile.label.email" var="email" />
 <fmt:message bundle="${text}" key="adminProfile.label.username"
 	var="username" />
+	
+	<c:url value="/style/adminProfileStyle.css" var="stm"/>
 
 <!DOCTYPE html>
 <html lang="${sessionScope.language}">
 <head>
-<link rel="stylesheet" type="text/css"	href="../style/adminProfileStyle.css">
+<link rel="stylesheet" href="${stm}">
 <meta charset="UTF-8">
-<title>ENAUCT</title>
+<title>AUCTION</title>
 </head>
 <body>
 	<header>
-		<a href="controller?command=main"> style="float:left">${home}</a>
+		<a href="controller?command=main" style="float:left"> ${home}</a>
 		<a href="controller?command=language&currentPage=profile&language=${sessionScope.nextLanguage}" style="float:right">${sessionScope.nextLanguage}</a>
 		<a href="controller?command=signOut">${sign_out}</a>
 		<a href="controller?command=profile">${profile}</a>
@@ -92,7 +94,7 @@
 </div>
 
 <footer>
-    <h4>${contact_us}: enauct@gmail.com</h4>
+        <h4 >${contact_us}:<a href="https://www.google.com/intl/ru/gmail/about/"> auctionAdmin@gmail.com</a></h4>
 </footer>
 
 </body>

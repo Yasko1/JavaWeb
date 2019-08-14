@@ -22,12 +22,13 @@
 <fmt:message bundle="${text}" key="userProfile.label.balance.topUp" var="top_up_balance"/>
 <fmt:message bundle="${text}" key="userProfile.label.balance.topUp.button" var="top_up_button"/>
 <fmt:message bundle="${text}" key="userProfile.label.balance.topUp.placeholder" var="top_up_placeholder"/>
-<c:url value="/style/userProfileStyle.css" var="stlup"/>
+<c:url value="/style/userProfileStyle.css" var="stl"/>
+
 <html lang="${sessionScope.language}">
 <head>
-    <link href="stlup" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="${stl}">
     <meta charset="UTF-8">
-    <title>ENAUCT</title>
+    <title>AUCTION</title>
 </head>
 <body>
 
@@ -107,7 +108,7 @@
 </div>
 
 <footer>
-    <h4></h4>
+        <h4 >${contact_us}:<a href="https://www.google.com/intl/ru/gmail/about/"> auctionAdmin@gmail.com</a></h4>  
 </footer>
 
 </body>

@@ -7,6 +7,12 @@
          id="WebApp_ID" version="3.1">
   <display-name>Archetype Created Web Application</display-name>
 
+   <jsp-config>
+    <taglib>
+     <taglib-uri>fullFilePath</taglib-uri>
+      <taglib-location>/WEB-INF/tld/fullFilePath.tld</taglib-location>
+      </taglib> 
+   </jsp-config>
    
     <servlet>
         <servlet-name>main</servlet-name>
@@ -47,5 +53,6 @@
         <filter-name>languageFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
 
 </web-app>
