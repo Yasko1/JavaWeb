@@ -25,7 +25,6 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 	@Override
 	public List<Picture> findPicturesByLotId(long id) throws DaoException {
 		String idParameter = String.valueOf(id);
-		System.out.println("PDI: " + executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter));
 		return executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter);
 	}
 
@@ -41,12 +40,8 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 		return executeUpdate(INSERT_QUERY, nameOfPicture, yearOfPaintingString);
 	}
 
-	public List<Picture> findAllByLotId(long id) throws DaoException {
-    	
-        String idParameter = String.valueOf(id); 
-        for(Picture p: executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter)) {
-        	System.out.println("      " + p.getId() + " " +p.getName());
-        }
+	public List<Picture> findAllByLotId(long id) throws DaoException {    	
+        String idParameter = String.valueOf(id);        
         return executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter);
     }
 	

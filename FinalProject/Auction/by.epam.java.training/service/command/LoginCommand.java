@@ -27,7 +27,7 @@ public class LoginCommand implements Command {
 
     /**
      * Process the request, login and generates a result of processing in the form of
-     * {@link com.epam.auction.command.CommandResult} object.
+     * {@link command.CommandResult} object.
      *
      * @param request  an {@link HttpServletRequest} object that contains client request
      * @param response an {@link HttpServletResponse} object that contains the response the servlet sends to the client
