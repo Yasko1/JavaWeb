@@ -28,10 +28,15 @@ public class MainCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
 
+    	System.out.println("Start");
         LotDtoService lotDtoService = new LotDtoService();
         List<LotDto> lotDtoList = lotDtoService.findAllActive();
+        for(LotDto l : lotDtoList) {
+        	System.out.println(" ??? " + l.getLot() + " ??? " + l.getPicture() );
+        }
         request.setAttribute(LOT_DTO_LIST, lotDtoList);
 
+       System.out.println("Finish");
         return new CommandResult(MAIN_PAGE, false);
 
     }

@@ -6,8 +6,9 @@ import java.util.Date;
 public class Picture extends Painter {
 
 	private long idPicture;
-	private String nameOfPicture;
-	private int yearOfPainting;
+	private String name;
+	private Date yearOfPainting;
+	
 
 	public static final String NAME_OF_PICTURE = "name";
 	public static final String YEAR_OF_PAINTING = "year_of_painting";
@@ -15,14 +16,14 @@ public class Picture extends Painter {
 	public Picture() {
 	}
 
-	public Picture(long idPicture, String name, int dateOfPainting) {
+	public Picture(long idPicture, String name, Date dateOfPainting) {
 		this.idPicture = idPicture;
-		this.nameOfPicture = name;
+		this.name = name;
 		this.yearOfPainting = dateOfPainting;
 	}
 
 	public Picture(long idLot, BigDecimal price, Date dateOfStart, Date dateOfEnd, LotStatusEnum status, long ownerId,
-			String nameOfPainter, String surnameOfPainter, String nameOfPicture, int dateOfPaint) {
+			String nameOfPainter, String surnameOfPainter, String nameOfPicture, Date dateOfPaint) {
 		this.idLot = idLot;
 		this.price = price;
 		this.dateOfStart = dateOfStart;
@@ -30,7 +31,7 @@ public class Picture extends Painter {
 		this.status = status;
 		this.nameOfPainter = nameOfPainter;
 		this.surnameOfPainter=surnameOfPainter;
-		this.nameOfPicture = nameOfPicture;
+		this.name = nameOfPicture;
 		this.yearOfPainting=dateOfPaint;
 		this.ownerId = ownerId;
 	}
@@ -44,18 +45,23 @@ public class Picture extends Painter {
 	}
 
 	public String getName() {
-		return nameOfPicture;
+		return name;
 	}
 
 	public void setName(String name) {
-		this.nameOfPicture = name;
+		this.name = name;
 	}
 
-	public int getDateOfPainting() {
+	public Date getDateOfPainting() {
 		return yearOfPainting;
 	}
+	
+	@SuppressWarnings("deprecation")
+	public int getYear() {
+		return yearOfPainting.getYear() + 1900;
+	}
 
-	public void setDateOfPainting(int dateOfPainting) {
+	public void setDateOfPainting(Date dateOfPainting) {
 		this.yearOfPainting = dateOfPainting;
 	}
 

@@ -17,6 +17,10 @@ public class LotDto {
         this.photos = photos;
     }
     
+    public LotDto(Picture picture) {
+        this.picture=picture;
+    }
+    
     public LotDto(Lot lot, List<LotPhoto> photos, Picture picture) {
         this.lot = lot;
         this.photos = photos;

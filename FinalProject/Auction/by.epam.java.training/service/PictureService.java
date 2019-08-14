@@ -15,12 +15,12 @@ public class PictureService {
 		try(DaoCreator daoCreator = new DaoCreator()) {
             PictureDaoImplementation pictureDao = daoCreator.getPictureDaoImpl();
 
-            return pictureDao.findPictureByLotId(id);
+            return pictureDao.findPicturesByLotId(id);
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }
 	}
-	
+
 	/**
      * The method designed for the process of saving an {@link Lot} object.
      *
@@ -33,6 +33,18 @@ public class PictureService {
             PictureDaoImplementation pictureDao = daoCreator.getPictureDaoImpl();
 
             return pictureDao.save(item);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
+    }
+    
+public List<Picture> findAllByLotId(long id) throws ServiceException {
+    	
+        try (DaoCreator daoCreator = new DaoCreator()){
+        	PictureDaoImplementation pictureDao = daoCreator.getPictureDaoImpl();
+
+            return pictureDao.findAllByLotId(id); 
+            
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }

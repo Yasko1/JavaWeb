@@ -2,6 +2,8 @@ package service.builder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import entity.Picture;
 import exception.DaoException;
@@ -10,16 +12,20 @@ public class PictureBuilder implements Builder<Picture> {
 
 
 /**
- * Designed to build an object of type {@link com.epam.auction.model.User} with specified characteristics.
+ * Designed to build an object of type {@link entity.User} with specified characteristics.
  */
 	@Override
 	public Picture build(ResultSet resultSet) throws DaoException {
 		try {
 		long idPicture= resultSet.getLong(Picture.ID);	
 		String name = resultSet.getString(Picture.NAME_OF_PICTURE);
-		int year = resultSet.getInt(Picture.YEAR_OF_PAINTING);
 		
-		return new Picture(idPicture, name, year);
+		Timestamp dateOfPaintingStamp = resultSet.getTimestamp(Picture.YEAR_OF_PAINTING);
+		long yearOfPainting = dateOfPaintingStamp.getTime();
+		
+		Date date = new Date(yearOfPainting);
+		
+		return new Picture(idPicture, name, date);
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e);
 		}

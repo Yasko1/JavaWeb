@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Designed to build an object of type {@link com.epam.auction.model.LotPhoto} with specified characteristics.
+ * Designed to build an object of type {@link entity.LotPhoto} with specified characteristics.
  */
 public class LotPhotoBuilder implements Builder<LotPhoto> {
 

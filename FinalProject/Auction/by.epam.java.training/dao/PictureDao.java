@@ -13,7 +13,7 @@ public interface PictureDao {
 	 *
 	 * @param id - User identifier in database
 	 */
-	List<Picture> findPictureByLotId(long id) throws DaoException;
+	List<Picture> findPicturesByLotId(long id) throws DaoException;
 	
 	public long save(Identifiable item) throws DaoException ;
 	

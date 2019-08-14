@@ -29,11 +29,11 @@ public class Painter extends Lot {
 		this.idPainter = idPainter;
 	}
 
-	public String getName() {
+	public String getNameOfPainter() {
 		return nameOfPainter;
 	}
 
-	public void setName(String name) {
+	public void setNameOfPainter(String name) {
 		this.nameOfPainter = name;
 	}
 

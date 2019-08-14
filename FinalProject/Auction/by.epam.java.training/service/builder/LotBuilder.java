@@ -8,7 +8,6 @@ import java.util.Date;
 
 import entity.Lot;
 import entity.LotStatusEnum;
-//import entity.Picture;
 import exception.DaoException;
 
 /**
@@ -16,7 +15,6 @@ import exception.DaoException;
  * specified characteristics.
  */
 public class LotBuilder implements Builder<Lot> {
-
 	/**
 	 * Builds an object of type Lot with properties.
 	 *
@@ -47,33 +45,6 @@ public class LotBuilder implements Builder<Lot> {
 			LotStatusEnum status = LotStatusEnum.findByValue(statusString);
 
 			return new Lot(id, price, ownerId, dateOfStart, dateOfEnd, status);
-			/*
-			 * long id = resultSet.getLong(Picture.ID); BigDecimal price =
-			 * resultSet.getBigDecimal(Picture.PRICE);
-			 * 
-			 * Timestamp dateOfStartTimeStamp =
-			 * resultSet.getTimestamp(Picture.DATE_OF_START); long
-			 * dateOfStartTimeMillisecond = dateOfStartTimeStamp.getTime(); Date dateOfStart
-			 * = new Date(dateOfStartTimeMillisecond);
-			 * 
-			 * Timestamp dateOfEndTimeStamp = resultSet.getTimestamp(Picture.DATE_OF_END);
-			 * long dateOfEndTimeMillisecond = dateOfEndTimeStamp.getTime(); Date dateOfEnd
-			 * = new Date(dateOfEndTimeMillisecond);
-			 * 
-			 * String nameOfPainter = resultSet.getString(Picture.NAME_OF_PAINTER); String
-			 * surnameOfPainter =resultSet.getString(Picture.SURNAME_OF_PAINTER); String
-			 * nameOfPicture = resultSet.getString(Picture.NAME_OF_PICTURE);
-			 * 
-			 * int yearOfPaint = resultSet.getInt(Picture.YEAR_OF_PAINTING);
-			 * 
-			 * long ownerId = resultSet.getLong(Picture.OWNER_ID);
-			 * 
-			 * String statusString = resultSet.getString(Picture.STATUS); LotStatusEnum
-			 * status = LotStatusEnum.findByValue(statusString);
-			 * 
-			 * return new Picture(id, price, dateOfStart, dateOfEnd, status, ownerId,
-			 * nameOfPainter, surnameOfPainter, nameOfPicture, yearOfPaint);
-			 */
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e);
 		}

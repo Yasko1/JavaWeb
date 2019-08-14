@@ -185,21 +185,4 @@ public class LotDaoImplementation  extends AbstractDao<Lot> implements LotDao  {
 	        BigDecimal oldPrice = lot.getPrice();
 	        BigDecimal newPrice = oldPrice.add(currentBid);
 	        lot.setPrice(newPrice);
-	    }
-
-	    /**
-	     * Decreases the price of the lot depending on its current bid and set {@link LotStatusEnum} of lot in
-	     * payment-waiting in the case of negative or zero price after bidding.
-	     *
-	     * @param lot an {@link Lot}object to be subject to price decrease.
-	     */
-	/*
-	 * private void decreasePrice(Lot lot) { BigDecimal currentBid =
-	 * lot.getCurrentBid(); BigDecimal oldPrice = lot.getPrice(); BigDecimal
-	 * newPrice = oldPrice.add(currentBid);
-	 * 
-	 * if (newPrice.compareTo(BigDecimal.ZERO) <= 0) { newPrice = BigDecimal.ZERO;
-	 * lot.setStatus(LotStatusEnum.PAYMENTWAITING); }
-	 * 
-	 * lot.setPrice(newPrice); }
-	 */}
+	    }}
