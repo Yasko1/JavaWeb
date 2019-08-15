@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 }
- 
+
 body {
     font-family: Arial, serif;
     padding: 10px;
@@ -43,7 +43,7 @@ header a:hover {
 
 /* Clear floats after the columns */
 .card:after {
-    content: ""; 
+    content: "";
     display: table;
     clear: both;
 }
@@ -71,74 +71,7 @@ footer a:hover{
     text-transform: uppercase;
 }
 
-/* Create three unequal columns that floats next to each other */
-
-/* Left and right column */
-.side {
-    width: 73%;
-    float: left;
-    padding: 10px;
-}
-
-#lots {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#lots td, #lots th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-#lots tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#lots tr:hover {
-    background-color: #ddd;
-}
-
-#lots th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-
-    background-color: #3c4168;
-    color: white;
-}
-
-.bidButton a {
-    background-color: #393E46;
-    color: white;
-    padding: 5px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.bidButton {
-    width: 100%;
-    float: left;
-    background-color: #393E46;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 8px;
-    text-decoration: none;
-}
-
-/* Middle column */
-.middle {
-    width: 27%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    margin-top: 10px;
-    float: left;
-    padding: 0;
-}
-
-select, textarea {
+input[type=text], input[type=datetime-local], select, textarea {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -151,43 +84,28 @@ label {
     display: inline-block;
 }
 
-.row #findButton {
+input[type=submit] {
     background-color: #393E46;
     color: white;
-    padding: 8px 40px;
+    padding: 12px 20px;
     margin: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.row #findButton:hover {
-    background-color: #ddd;
+input[type=submit]:hover {
+    background-color: #3c4168;
     color: black;
 }
 
-.findButtonDiv {
-    text-align: center;
-}
-
-.finderHeader {
-    text-align: center;
-    background-color: #3c4168;
-    padding: 10px;
-    color: white;
-}
-
-.finder {
-    margin: 15px;
-}
-
 .container {
-    height: 50%;
-    width: 50%;
+    /*height: 50%;*/
+    width: 75%;
     margin: auto;
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 .col-25 {
@@ -196,17 +114,6 @@ label {
     margin-top: 6px;
 }
 
-.col-30 {
-    float: left;
-    width: 30%;
-    margin-top: 6px;
-}
-
-.col-10 {
-    float: left;
-    width: 10%;
-    margin-top: 6px;
-}
 
 .col-75 {
     float: left;
@@ -214,10 +121,23 @@ label {
     margin-top: 6px;
 }
 
-.col-70 {
-    float: left;
-    width: 70%;
-    margin-top: 6px;
+.offerALotHeader {
+    text-align: center;
+    background-color: #3c4168;
+    padding: 10px;
+    color: white;
+}
+
+.offerALotForm {
+    margin: 15px;
+}
+
+.photoForm {
+    margin-left: 8px;
+}
+
+.row p {
+  margin-left: 6px;
 }
 
 /* Clear floats after the columns */
@@ -227,9 +147,10 @@ label {
     clear: both;
 }
 
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 1200px) {
-     .side, .middle, input[type=submit] {
+@media screen and (max-width: 1000px) {
+    .col-25, .col-75, .col-15, .col-30, input[type=submit] {
         width: 100%;
         margin-top: 0;
     }
@@ -240,13 +161,5 @@ label {
     .topnav a {
         float: none;
         width: 100%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .lots {
-        width: 100%;
-        overflow-x: auto;
-        display: block;
     }
 }
