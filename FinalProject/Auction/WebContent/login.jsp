@@ -42,8 +42,8 @@
 <html lang="${sessionScope.language}">
 <head>
 <meta charset="UTF-8">
-<title>ENAUCT</title>
-<link href="${sty}" type="text/css" rel="stylesheet">
+<title>AUCTION</title>
+<link href="${sty}" rel="stylesheet">
 
 </head>
 <body>
@@ -113,7 +113,7 @@
 
 				<div class="text-center p-t-115">
 					<span class="txt1"> Don’t have an account? </span> <a class="txt2"
-						href="#"> Sign Up </a>
+						href="https://www.google.com/intl/ru/gmail/about/"> Contact to us </a>
 				</div>
 
 			</form>
@@ -121,7 +121,9 @@
 	</div>
 
 
-	<footer> </footer>
+	<footer>
+	   <h4 >${contact_us}:</h4> <a href="https://www.google.com/intl/ru/gmail/about/"> auctionAdmin@gmail.com</a> 
+	</footer>
 
 
 </body>
