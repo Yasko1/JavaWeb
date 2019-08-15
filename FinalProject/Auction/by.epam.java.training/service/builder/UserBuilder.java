@@ -9,7 +9,7 @@ import entity.User;
 import exception.DaoException;
 
 /**
- * Designed to build an object of type {@link com.epam.auction.model.User} with specified characteristics.
+ * Designed to build an object of type {@link entity.User} with specified characteristics.
  */
 public class UserBuilder implements Builder<User> {
 

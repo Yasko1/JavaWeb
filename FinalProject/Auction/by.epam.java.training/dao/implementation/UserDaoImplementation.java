@@ -123,7 +123,7 @@ public class UserDaoImplementation extends AbstractDao<User> implements UserDao 
 	}
 
 	/**
-	 * Method designed for saving {@link com.epam.auction.model.Lot} bidders.
+	 * Method designed for saving {@link entity.Lot} bidders.
 	 *
 	 * @throws DaoException Signals that an database access object exception of some
 	 *                      sort has occurred.

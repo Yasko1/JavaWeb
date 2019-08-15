@@ -38,11 +38,11 @@ public class OfferALotCommand implements Command {
 
     /**
      * Process the request, offer a lot and generates a result of processing in the form of
-     * {@link com.epam.auction.command.CommandResult} object.
+     * {@link command.CommandResult} object.
      *
      * @param request  an {@link HttpServletRequest} object that contains client request
      * @param response an {@link HttpServletResponse} object that contains the response the servlet sends to the client
-     * @return A response in the form of {@link com.epam.auction.command.CommandResult} object.
+     * @return A response in the form of {@link command.CommandResult} object.
      * @throws ServiceException when DaoException is caught.
      */
     @Override
@@ -110,26 +110,7 @@ public class OfferALotCommand implements Command {
                 Date dateOfEnd = new Date(dateOfEndMillis);
                 lot.setDateOfEnd(dateOfEnd);
                 break;
-		/*
-		 * case Lot.BRAND: lot.setBrand(paramValue); break; case Lot.MODEL:
-		 * lot.setModel(paramValue); break; case Lot.CLASS:
-		 * lot.setClassOfLot(paramValue); break;
-		 */
-		/*
-		 * case Picture.DATE_OF_PAINTING: int year = Integer.parseInt(paramValue);
-		 * lot.set break;
-		 */
-		/*
-		 * case Lot.COLOR: String color = paramValue.toUpperCase(); ColorEnum colorEnum
-		 * = ColorEnum.valueOf(color); lot.setColorEnum(colorEnum); break;
-		 */
-		/*
-		 * case Lot.IS_DAMAGED: boolean isDamaged = Boolean.valueOf(paramValue);
-		 * lot.setDamaged(isDamaged); break; case Lot.AUCTION_TYPE: String
-		 * auctionTypeString = paramValue.toUpperCase(); AuctionTypeEnum auctionType =
-		 * AuctionTypeEnum.valueOf(auctionTypeString); lot.setAuctionType(auctionType);
-		 * break;
-		 */
+		
             default:
                 throw new IllegalArgumentException("Unknown type of parameter!");
         }

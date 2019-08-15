@@ -24,7 +24,7 @@ public class ProfileCommand implements Command {
     private static final String USER_PROFILE_PAGE = "/WEB-INF/userProfile.jsp";
 
     /**
-     * Generates a result of request processing in the form of {@link com.epam.auction.command.CommandResult} object
+     * Generates a result of request processing in the form of {@link ccommand.CommandResult} object
      * with profile  page.
      *
      * @param request  an {@link HttpServletRequest} object that contains client request

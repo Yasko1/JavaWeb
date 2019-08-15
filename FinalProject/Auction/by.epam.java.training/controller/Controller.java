@@ -58,14 +58,12 @@ public class Controller extends HttpServlet {
 	 * {@link HttpServletRequest} object, execute this command and redirects or
 	 * forwards on destination page depending on the result of the command.
 	 *
-	 * @param request  an {@link HttpServletRequest} object that contains client
-	 *                 request
+	 * @param request  an {@link HttpServletRequest} object that contains client request
 	 * @param response an {@link HttpServletResponse} object that contains the
 	 *                 response the servlet sends to the client
 	 * @throws ServletException General exception a servlet can throw when it
 	 *                          encounters difficulty.
-	 * @throws IOException      Signals that an I/O exception of some sort has
-	 *                          occurred.
+	 * @throws IOException      Signals that an I/O exception of some sort has occurred.
 	 */
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -94,15 +92,12 @@ public class Controller extends HttpServlet {
 	/**
 	 * Forwards to destination page.(nujnuu)
 	 *
-	 * @param request  an {@link HttpServletRequest} object that contains client
-	 *                 request.
-	 * @param response an {@link HttpServletResponse} object that contains the
-	 *                 response the servlet sends to the client.
-	 * @param page     an {@link String} object that contains forwarding page.
-	 * @throws ServletException General exception a servlet can throw when it
-	 *                          encounters difficulty.
-	 * @throws IOException      Signals that an I/O exception of some sort has
-	 *                          occurred.
+	 * @param request  an {@link HttpServletRequest} object that contains client request.
+	 * @param response an {@link HttpServletResponse} object that contains the response the
+	 *  servlet sends to the client.
+	 * @param page an {@link String} object that contains forwarding page.
+	 * @throws ServletException General exception a servlet can throw when it encounters difficulty.
+	 * @throws IOException      Signals that an I/O exception of some sort has occurred.
 	 */
 	private void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
 			throws ServletException, IOException {

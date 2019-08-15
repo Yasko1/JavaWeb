@@ -12,6 +12,10 @@ import exception.DaoException;
 import service.builder.PictureBuilder;
 import service.util.DateTimeParser;
 
+
+/**
+ *  Class is an implementation of access to picture database and provides methods to work with it.
+ */
 public class PictureDaoImplementation extends AbstractDao<Picture> implements PictureDao {
 	
 	private static final String INSERT_QUERY= "INSERT INTO picture (name, year_of_painting) VALUES(?,?)";
@@ -28,6 +32,13 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 		return executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter);
 	}
 
+	/**
+     * The method designed for the process of saving a {@link Picture} object in database.
+     *
+     * @param item an {@link Identifiable} {@link entity.Picture} object that should be saved to the database.
+     * @return created picture identifier in database.
+     * @throws DaoException Signals that an database access object exception of some sort has occurred.
+     */
 	@Override
 	public long save(Identifiable item) throws DaoException {
 		Picture picture = (Picture) item;
@@ -40,12 +51,24 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 		return executeUpdate(INSERT_QUERY, nameOfPicture, yearOfPaintingString);
 	}
 
+	/**
+	 * Method designed for searching user lots depends on user identifier.
+	 *
+	 * @param id - Lot identifier in database
+	 * @return an {@link List} implementation with an user {@link entity.Picture} objects.
+	 * @throws DaoException Signals that an database access object exception of some
+	 *                      sort has occurred.
+	 */
+	@Override
 	public List<Picture> findAllByLotId(long id) throws DaoException {    	
         String idParameter = String.valueOf(id);        
         return executeQuery(PICTURE_BY_LOT_ID_QUERY, new PictureBuilder(), idParameter);
     }
 	
-	
+    /**
+    *
+    * @return Name of the table designed for storage {@link entity.Picture}.
+    */
 	@Override
 	protected String getTableName() {		
 		return TABLE_NAME;

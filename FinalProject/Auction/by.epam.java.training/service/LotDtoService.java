@@ -128,7 +128,6 @@ public class LotDtoService {
 			PictureService pService = new PictureService();
 
 			List<Picture> picturess = pService.findByIDLot(lotId);
-			
 			for (Picture p : picturess) {
 				if (lotId == p.getId()) {
 					LotDto lotDto = new LotDto(lot, lotPhotos, p);

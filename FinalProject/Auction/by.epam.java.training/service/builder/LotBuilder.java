@@ -37,8 +37,6 @@ public class LotBuilder implements Builder<Lot> {
 			long dateOfEndTimeMillisecond = dateOfEndTimeStamp.getTime();
 			Date dateOfEnd = new Date(dateOfEndTimeMillisecond);
 
-			// boolean isDamaged = resultSet.getBoolean(Lot.IS_DAMAGED);
-
 			long ownerId = resultSet.getLong(Lot.OWNER_ID);
 
 			String statusString = resultSet.getString(Lot.STATUS);

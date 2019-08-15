@@ -21,11 +21,11 @@ public class LanguageCommand implements Command {
 
     /**
      * Process the request, change language and generates a result of processing in the form of
-     * {@link com.epam.auction.command.CommandResult} object.
+     * {@link command.CommandResult} object.
      *
      * @param request  an {@link HttpServletRequest} object that contains client request
      * @param response an {@link HttpServletResponse} object that contains the response the servlet sends to the client
-     * @return A response in the form of {@link com.epam.auction.command.CommandResult} object.
+     * @return A response in the form of {@link command.CommandResult} object.
      */
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) {

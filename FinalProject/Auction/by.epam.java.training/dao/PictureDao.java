@@ -15,6 +15,8 @@ public interface PictureDao {
 	 */
 	List<Picture> findPicturesByLotId(long id) throws DaoException;
 	
+	public List<Picture> findAllByLotId(long id) throws DaoException;
+	
 	public long save(Identifiable item) throws DaoException ;
 	
 }

@@ -14,12 +14,12 @@ public class OfferALotPageCommand implements Command {
     private static final String OFFER_A_LOT_PAGE = "/WEB-INF/offerALot.jsp";
 
     /**
-     * Generates a result in the form of {@link com.epam.auction.command.CommandResult} object with
+     * Generates a result in the form of {@link command.CommandResult} object with
      * offer a lot page.
      *
      * @param request  an {@link HttpServletRequest} object that contains client request
      * @param response an {@link HttpServletResponse} object that contains the response the servlet sends to the client
-     * @return A response in the form of {@link com.epam.auction.command.CommandResult} object.
+     * @return A response in the form of {@link command.CommandResult} object.
      */
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) {

@@ -28,18 +28,18 @@ public interface UserDao {
 	List<User> findAllUsers() throws DaoException;
 
 	/**
-	 * Method designed for searching {@link com.epam.auction.model.Lot} bidders
-	 * depends on {@link com.epam.auction.model.Lot} identifier.
+	 * Method designed for searching {@link entity.Lot} bidders
+	 * depends on {@link model.Lot} identifier.
 	 *
-	 * @param lotId is an identifier of {@link com.epam.auction.model.Lot}
-	 * @return a {@link List} implementation with a {@link User} objects.
+	 * @param lotId is an identifier of {@link entity.Lot}
+	 * @return a {@link List} implementation with a {@link entity.User} objects.
 	 * @throws DaoException Signals that an database access object exception of some
 	 *                      sort has occurred.
 	 */
 	List<User> findLotBidders(long lotId) throws DaoException;
 
 	/**
-	 * Method designed for saving {@link com.epam.auction.model.Lot} bidders.
+	 * Method designed for saving {@link entity.Lot} bidders.
 	 *
 	 * @throws DaoException Signals that an database access object exception of some
 	 *                      sort has occurred.
