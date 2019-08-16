@@ -32,9 +32,33 @@
 }
 
 body, html {
-	
+	background: #f1f1f1 url(../img/background-img.jpg);
+    
     height: 100%;
     font-family: Poppins-Regular, sans-serif;
+}
+
+header {
+    overflow: hidden;
+    background-color: #3c4168;
+    border-radius: 0 0 5px 5px;
+    opacity: 0.9;
+}
+
+header a {
+    float: right;
+    background-color: #393E46;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+header a:hover {
+    background-color: #3c4168;
+    color: black;
 }
 
 /*---------------------------------------------*/
@@ -87,7 +111,7 @@ input {
     outline: none;
     border: none;
 }
-
+/* Footer */
 footer {
     text-align: left;
     margin-top: 20px;
@@ -213,7 +237,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;  
+  background: #f1f1f1 url(../img/background-img.jpg);  
 }
 
 .wrap-login100 {

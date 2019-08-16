@@ -10,30 +10,18 @@
 
 <fmt:message bundle="${text}" key="footer.helpInfo" var="footer_info" />
 
-<fmt:message bundle="${text}" key="login.label.username"
-	var="username_label" />
-<fmt:message bundle="${text}" key="login.label.password"
-	var="password_label" />
-<fmt:message bundle="${text}" key="login.password.placeholder"
-	var="password_placeholder" />
-<fmt:message bundle="${text}" key="login.username.placeholder"
-	var="username_placeholder" />
-<fmt:message bundle="${text}" key="login.button.submit"
-	var="submit_button" />
-<fmt:message bundle="${text}" key="login.username.pattern.error"
-	var="username_pattern_error" />
-<fmt:message bundle="${text}" key="login.username.pattern.error"
-	var="username_pattern_error" />
-<fmt:message bundle="${text}" key="login.error.access.message"
-	var="error_access" />
-<fmt:message bundle="${text}" key="login.error.access.admin.message"
-	var="error_access_admin" />
-<fmt:message bundle="${text}" key="login.error.access.user.message"
-	var="error_access_user" />
-<fmt:message bundle="${text}" key="login.error.login.message"
-	var="error_login" />
-<fmt:message bundle="${text}" key="login.error.account.banned.message"
-	var="error_account_banned" />
+<fmt:message bundle="${text}" key="login.label.username" var="username_label" />
+<fmt:message bundle="${text}" key="login.label.password"	var="password_label" />
+<fmt:message bundle="${text}" key="login.password.placeholder"	var="password_placeholder" />
+<fmt:message bundle="${text}" key="login.username.placeholder"	var="username_placeholder" />
+<fmt:message bundle="${text}" key="login.button.submit"	var="submit_button" />
+<fmt:message bundle="${text}" key="login.username.pattern.error"	var="username_pattern_error" />
+<fmt:message bundle="${text}" key="login.username.pattern.error"	var="username_pattern_error" />
+<fmt:message bundle="${text}" key="login.error.access.message"	var="error_access" />
+<fmt:message bundle="${text}" key="login.error.access.admin.message"	var="error_access_admin" />
+<fmt:message bundle="${text}" key="login.error.access.user.message"	var="error_access_user" />
+<fmt:message bundle="${text}" key="login.error.login.message"	var="error_login" />
+<fmt:message bundle="${text}" key="login.error.account.banned.message"	var="error_account_banned" />
 
 <c:url value="/style/loginStyle.css" var="sty" />
 <c:url value="/controller?command=main" var="ma" />
@@ -48,11 +36,10 @@
 </head>
 <body>
 
-	<header class="containerheader">
-		<nav class="bottonhomeauct">
-			<a class="zmdi zmdi-font" href="${ma}">${home}</a> <a
-				href="${ln}=${sessionScope.nextLanguage}" style="float: right">${sessionScope.nextLanguage}</a>
-		</nav>
+	<header>
+	<a href="controller?command=main" style="float:left">${home}</a>
+			<a href="controller?command=language&currentPage=main&language=${sessionScope.nextLanguage}"
+       style="float:right">${sessionScope.nextLanguage}</a>
 	</header>
 
 
@@ -119,11 +106,6 @@
 			</form>
 		</div>
 	</div>
-
-
-	<footer>
-	   <h4 >${contact_us}:</h4> <a href="https://www.google.com/intl/ru/gmail/about/"> auctionAdmin@gmail.com</a> 
-	</footer>
 
 
 </body>

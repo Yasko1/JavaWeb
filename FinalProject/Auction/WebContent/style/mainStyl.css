@@ -138,6 +138,13 @@ footer a:hover{
     padding: 0;
 }
 
+.hinput{ 
+	width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
 select, textarea {
     width: 100%;
     padding: 5px;

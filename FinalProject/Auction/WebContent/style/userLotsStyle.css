@@ -5,7 +5,7 @@
 body {
     font-family: Arial, serif;
     padding: 10px;
-    background: #f1f1f1 url(/img/background-img.jpg);
+    background: #f1f1f1 url(../img/background-img.jpg); 
     background-size: cover;
 }
 
