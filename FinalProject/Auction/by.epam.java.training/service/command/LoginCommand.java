@@ -44,12 +44,14 @@ public class LoginCommand implements Command {
 
         if (!user.isPresent()) {
             request.setAttribute(ERROR_LOGIN_MESSAGE, AUTHENTICATION_FAILED_MESSAGE);
+            System.out.println("1");
             return new CommandResult(LOGIN_PAGE, false);
         }
 
         User userEntity = user.get();
         if (userEntity.isBanned()) {
             request.setAttribute(ERROR_LOGIN_MESSAGE, ACCOUNT_HAS_BEEN_BANNED_MESSAGE);
+            System.out.println("2");
             return new CommandResult(LOGIN_PAGE, false);
         }
 
@@ -60,6 +62,7 @@ public class LoginCommand implements Command {
         session.setAttribute(ID, id);
         session.setAttribute(ROLE, role);
 
+        System.out.println("all ok");
         return new CommandResult(COMMAND_MAIN, true);
     }
 

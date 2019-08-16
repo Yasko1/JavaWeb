@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import dao.DaoCreator;
 import dao.implementation.PictureDaoImplementation;
@@ -56,4 +57,23 @@ public class PictureService {
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}
+    /**
+     * The method searches for picturess with given parameters.
+     *
+     * @param parameters a {@link Map} object that maps keys(name of parameter) to values of parameters.
+     * @return an {@link List} implementation with {@link Picture} objects.
+     * @throws ServiceException Signals that service exception of some sort has occurred.
+     */
+    public List<Picture> findByParameters(Map<String, String> parameters) throws ServiceException {
+    	DaoCreator daoCreator = new DaoCreator();
+    	try {        	
+			PictureDaoImplementation pDao = daoCreator.getPictureDaoImpl();
+			System.out.println(pDao.findByParameters(parameters));
+            return pDao.findByParameters(parameters);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+        	daoCreator.close();
+		}
+    }
 }

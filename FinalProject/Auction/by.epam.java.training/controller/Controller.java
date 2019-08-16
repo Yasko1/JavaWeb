@@ -54,7 +54,7 @@ public class Controller extends HttpServlet {
 	}
 
 	/**
-	 * Processes the request by obtaining a command from the
+	 * Processes the request by getting a command from the
 	 * {@link HttpServletRequest} object, execute this command and redirects or
 	 * forwards on destination page depending on the result of the command.
 	 *
@@ -80,7 +80,7 @@ public class Controller extends HttpServlet {
 			LOGGER.error(e.getMessage(), e);
 			commandResult = new CommandResult(ERROR_PAGE, false);
 		}
-
+		
 		String page = commandResult.getPage();
 		if (commandResult.isRedirect()) {
 			sendRedirect(response, page);
@@ -101,7 +101,7 @@ public class Controller extends HttpServlet {
 	 */
 	private void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
 			throws ServletException, IOException {
-		ServletContext servletContext = getServletContext();
+		ServletContext servletContext = getServletContext(); 
 		RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(page);
 		requestDispatcher.forward(request, response);
 	}

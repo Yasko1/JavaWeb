@@ -20,11 +20,23 @@ public class DynamicQueryBuilder {
     private static final String DATE_OF_START_TO_PARAMETER = "date_of_start > ?";
     private static final String DATE_OF_END_TO_PARAMETER = "date_of_end > ?";
     private static final String DATE_OF_END_FROM_PARAMETER = "date_of_end < ?";
+    private static final String PRICE_FROM_PARAMETER = "price > ?";
+    private static final String PRICE_TO_PARAMETER = "price < ?";
 
+	/*
+	 * private static final String YEAR_OF_PAINTING_FROM_PARAMETER =
+	 * "year_of_painting > ?"; private static final String
+	 * YEAR_OF_PAINTING_TO_PARAMETER = "year_of_painting < ?"; private static final
+	 * String YEAR_FROM = "year_of_painting_from"; private static final String
+	 * YEAR_TO = "year_of_painting_to";
+	 */
+    
     private static final String DATE_OF_START_FROM = "date_of_start_from";
     private static final String DATE_OF_START_TO = "date_of_start_to";
     private static final String DATE_OF_END_FROM = "date_of_end_from";
     private static final String DATE_OF_END_TO = "date_of_end_to";
+    private static final String PRICE_FROM = "price_from";
+    private static final String PRICE_TO = "price_to";
 
     /**
      * Designed to build query depends on searching parameters.
@@ -83,6 +95,12 @@ public class DynamicQueryBuilder {
                 break;
             case DATE_OF_END_TO:
                 whereParameter = DATE_OF_END_TO_PARAMETER;
+                break;
+            case PRICE_FROM:
+                whereParameter = PRICE_FROM_PARAMETER;
+                break;
+            case PRICE_TO:
+                whereParameter = PRICE_TO_PARAMETER;
                 break;
             default:
                 throw new IllegalArgumentException("Unknown name of parameter!"+" parametr = " + name);

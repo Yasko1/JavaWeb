@@ -23,7 +23,7 @@ public class Painter extends Lot {
 
 	public long getIdPainter() {
 		return idPainter;
-	}
+	} 
 
 	public void setIdPainter(long idPainter) {
 		this.idPainter = idPainter;

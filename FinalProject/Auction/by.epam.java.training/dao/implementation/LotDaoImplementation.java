@@ -139,12 +139,16 @@ public class LotDaoImplementation extends AbstractDao<Lot> implements LotDao {
 			String value = entry.getValue();
 			if (!ALL.equals(value)) {
 				String key = entry.getKey();
-				processedParameters.put(key, value);
+				if(key=="price_to" && value.isEmpty()) {
+				processedParameters.put(key, "1000");
+				} else {
+					processedParameters.put(key, value);
+				}
 			}
 		}
 
 		String query = DynamicQueryBuilder.build(processedParameters);
-
+		
 		Collection<String> values = processedParameters.values();
 
 		int size = processedParameters.size();

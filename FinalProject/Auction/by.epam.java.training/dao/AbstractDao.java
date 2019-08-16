@@ -45,8 +45,9 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
         List<T> items = new ArrayList<>();
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
+        	
             QueryPreparer.prepare(preparedStatement, params);
-
+            
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {

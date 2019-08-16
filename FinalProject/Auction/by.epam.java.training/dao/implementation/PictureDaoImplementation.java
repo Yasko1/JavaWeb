@@ -1,10 +1,14 @@
 package dao.implementation;
 
 import java.sql.Connection;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dao.AbstractDao;
+import dao.DynamicQueryBuilder;
 import dao.PictureDao;
 import entity.Identifiable;
 import entity.Picture;
@@ -13,7 +17,7 @@ import service.builder.PictureBuilder;
 import service.util.DateTimeParser;
 
 
-/**
+/** 
  *  Class is an implementation of access to picture database and provides methods to work with it.
  */
 public class PictureDaoImplementation extends AbstractDao<Picture> implements PictureDao {
@@ -21,6 +25,7 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 	private static final String INSERT_QUERY= "INSERT INTO picture (name, year_of_painting) VALUES(?,?)";
 	private static final String TABLE_NAME = "picture";
 	private static final String PICTURE_BY_LOT_ID_QUERY = "SELECT * FROM picture WHERE id_lot = ?";
+	private static final String ALL = "All";
 	
 	public PictureDaoImplementation(Connection connection) {
 		super(connection);
@@ -72,6 +77,38 @@ public class PictureDaoImplementation extends AbstractDao<Picture> implements Pi
 	@Override
 	protected String getTableName() {		
 		return TABLE_NAME;
+	}
+	
+	/**
+	 * The method searches for pictures with given parameters.
+	 *
+	 * @param parameters a {@link Map} object that maps keys(name of parameter) to
+	 *                   values of parameters.
+	 * @return an {@link List} implementation with {@link Pictures} objects.
+	 * @throws DaoException Signals that an database access object exception of some
+	 *                      sort has occurred.
+	 */
+	public List<Picture> findByParameters(Map<String, String> parameters) throws DaoException {
+		Map<String, String> processedParameters = new HashMap<>();
+
+		for (Map.Entry<String, String> entry : parameters.entrySet()) {
+			String value = entry.getValue();
+			if (!ALL.equals(value)) {
+				String key = entry.getKey();
+				processedParameters.put(key, value);
+			}
+		}
+
+		String query = DynamicQueryBuilder.build(processedParameters);
+
+		System.out.println("query: " + query);
+		Collection<String> values = processedParameters.values();
+
+		int size = processedParameters.size();
+		String[] parameterValues = new String[size];
+		values.toArray(parameterValues);
+
+		return executeQuery(query, new PictureBuilder(), parameterValues);
 	}
 	
 	

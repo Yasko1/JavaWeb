@@ -37,8 +37,8 @@ public class LotDtoService {
 	}
 
 	public List<LotDto> findAllPictByLotId(long id) throws ServiceException {
-		PictureService pService = new PictureService();
-		List<Picture> picturess = pService.findByIDLot(id);
+		PictureService pictureService = new PictureService();
+		List<Picture> picturess = pictureService.findByIDLot(id);
 
 		List<LotDto> lotsDTO = new ArrayList<>();
 		for (Picture p : picturess) {

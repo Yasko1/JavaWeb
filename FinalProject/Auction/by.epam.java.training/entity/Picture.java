@@ -3,12 +3,11 @@ package entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Picture extends Painter {
+public class Picture extends Painter{
 
 	private long idPicture;
 	private String name;
 	private Date yearOfPainting;
-	
 
 	public static final String NAME_OF_PICTURE = "name";
 	public static final String YEAR_OF_PAINTING = "year_of_painting";
@@ -21,7 +20,6 @@ public class Picture extends Painter {
 		this.name = name;
 		this.yearOfPainting = dateOfPainting;
 	}
-
 	public Picture(long idLot, BigDecimal price, Date dateOfStart, Date dateOfEnd, LotStatusEnum status, long ownerId,
 			String nameOfPainter, String surnameOfPainter, String nameOfPicture, Date dateOfPaint) {
 		this.idLot = idLot;
